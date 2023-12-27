@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:peta_teknokrat/map/models/maps.dart';
+import 'package:peta_teknokrat/map/maps.dart';
 
 class MapListClass extends StatelessWidget {
   const MapListClass({required this.map, super.key});

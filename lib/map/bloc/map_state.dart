@@ -1,19 +1,19 @@
 part of 'map_bloc.dart';
 
-enum MapStatus { initial, searching, success, failure }
+enum MapStatus { initial, success, failure }
 
 final class MapState extends Equatable {
   const MapState({
     this.status = MapStatus.initial,
-    this.map = const <Map>[],
+    this.map = const <String>[],
   });
 
   final MapStatus status;
-  final List<Map> map;
+  final List<String> map;
 
   MapState copyWith({
     MapStatus? status,
-    List<Map>? map,
+    List<String>? map,
   }) {
     return MapState(
       status: status ?? this.status,
