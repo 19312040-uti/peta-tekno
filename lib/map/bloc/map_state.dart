@@ -5,15 +5,15 @@ enum MapStatus { initial, success, failure }
 final class MapState extends Equatable {
   const MapState({
     this.status = MapStatus.initial,
-    this.map = const <String>[],
+    this.map = const <Maps>[],
   });
 
   final MapStatus status;
-  final List<String> map;
+  final List<Maps> map;
 
   MapState copyWith({
     MapStatus? status,
-    List<String>? map,
+    List<Maps>? map,
   }) {
     return MapState(
       status: status ?? this.status,

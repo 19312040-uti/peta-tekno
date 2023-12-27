@@ -2,6 +2,7 @@ import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
 import 'package:peta_teknokrat/class_repository.dart';
+import 'package:peta_teknokrat/map/maps.dart';
 
 part 'map_event.dart';
 part 'map_state.dart';
@@ -20,20 +21,14 @@ class MapBloc extends Bloc<MapEvent, MapState> {
     try {
       if (state.status == MapStatus.initial) {
         final maps = await _fetchMaps();
-        final directions = await _fetchDirections();
       }
     } catch (_) {
       emit(state.copyWith(status: MapStatus.failure));
     }
   }
 
-  Future<List<String>> _fetchMaps([int index = 0]) async {
+  Future<List<Maps>> _fetchMaps([int index = 0]) async {
     final response = classRepository.getMaps();
-    return response;
-  }
-
-  Future<List<String>> _fetchDirections([int index = 0]) async {
-    final response = classRepository.getDirections();
     return response;
   }
 }

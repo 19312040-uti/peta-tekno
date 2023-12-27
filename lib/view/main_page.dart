@@ -33,7 +33,7 @@ class _MapListsState extends State<MainPage> {
               itemBuilder: (BuildContext context, int index) {
                 return index >= state.map.length
                     ? const BottomLoader()
-                    : MapListClass(map: state.map);
+                    : MapListClass(map: state.map[index]);
               },
               itemCount: state.map.length,
             );

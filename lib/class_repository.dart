@@ -25,29 +25,16 @@ const _direction = [
 ];
 
 class ClassRepository {
-  final _classes = <String>[];
-
-  Future<List<String>> loadClasses() => Future.delayed(_delay, () => _classes);
-
   void searchClass(String classes) => _classes.add(classes);
 
-  List<String> getMaps({int index = 0}) {
-    List<String> maps = [];
+  List<Maps> getMaps({int index = 0}) {
+    List<Maps> maps = [];
 
     _classes.forEach((element) {
-      maps.add(element);
+      maps.add(Maps(
+          id: index, place: _classes[index], direction: _direction[index]));
     });
 
     return maps;
-  }
-
-  List<String> getDirections({int index = 0}) {
-    List<String> direction = [];
-
-    _direction.forEach((element) {
-      direction.add(element);
-    });
-
-    return direction;
   }
 }
